@@ -129,13 +129,13 @@ spec:
           # envFrom:
           #   - configMapRef:
           #       name: frontend
-          volumes:
-          - name: nginx-config
-            configMap:
-              name: frontend
-              items:
-              - key: nginx.conf
-                path: nginx.conf
+      volumes:
+      - name: nginx-config
+        configMap:
+          name: frontend
+          items:
+           - key: nginx.conf
+             path: nginx.conf
 ---
 
 kind: Service
