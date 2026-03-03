@@ -120,22 +120,22 @@ spec:
       containers:
         - name: frontend
           image: tgsmanimohan/frontend:v1.0
-          # envFrom:
-          #   - configMapRef:
-          #       name: frontend
-          volumes:
-            - name: nginx-config
-              configMap:
-                name: frontend
-                items:
-                  - key: nginx.conf
-                    path: nginx.conf
-      # the volumeMounts section is used to mount the ConfigMap as a file inside the container
+          # the volumeMounts section is used to mount the ConfigMap as a file inside the container
           volumeMounts:
             - name: nginx-config
               mountPath: /etc/nginx/nginx.conf
               subPath: nginx.conf
               readOnly: true
+          # envFrom:
+          #   - configMapRef:
+          #       name: frontend
+          volumes:
+          - name: nginx-config
+            configMap:
+              name: frontend
+              items:
+              - key: nginx.conf
+                path: nginx.conf
 ---
 
 kind: Service
