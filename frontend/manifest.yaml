@@ -120,6 +120,13 @@ spec:
       containers:
         - name: frontend
           image: tgsmanimohan/frontend:v1.0
+          resources:
+            requests:
+              memory: "128Mi"
+              cpu: "100m"
+            limits:
+              cpu: "150m"
+              memory: "256Mi"
           # the volumeMounts section is used to mount the ConfigMap as a file inside the container
           volumeMounts:
             - name: nginx-config
